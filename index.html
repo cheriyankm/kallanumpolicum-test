@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+Role order
+    <table border="1">
+        <tr ng-repeat="x in roles">
+          <td>{{x}}</td>
+        </tr>
+      </table>
+<br><br>
+You are {{myTable[0].role}}
+<table border="1">
+    <tr>
+      <td>id</td>
+      <td>name</td>
+      <td>role</td>
+      <td>value</td>
+      <td>reveal</td>
+      <td>turn</td>
+    </tr>
+    <tr ng-repeat="x in myTable">
+      <td>{{ x.id }}</td>
+      <td>{{ x.name }}</td>
+      <td>{{ x.role }}</td>
+      <td>{{ x.value }}</td>
+      <td>{{ x.reveal }}</td>
+      <td>{{ x.turn }}</td>
+      <td ng-hide="x.reveal">{{ x.role }}</td>
+      <td ng-hide="!x.reveal">*HIDDEN*</td>
+      <td ng-hide="!x.reveal"><button ng-click="myGuess(x)">It's you</button></td>
+      <td ng-hide="x.turn"><button ng-click="guess(x)">Guess</button></td>
+    </tr>
+  </table>
+
+</div>
+
+<script src="app1.js"></script>
+
+</body>
+</html>
